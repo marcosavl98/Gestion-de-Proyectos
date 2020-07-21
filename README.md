@@ -1,2 +1,2 @@
-Fase 2.2 Grupo 3
-esta es la tercera entrega o fase 2 del proyecto
+Fase 3.2
+esta es la tercera fase del proyecto
