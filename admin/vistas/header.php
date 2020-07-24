@@ -147,14 +147,14 @@ if (strlen(session_id())<1)
 
           <li class="treeview">
           <a href="#">
-            <i class="fa fa-book"></i> <span>Asistencias</span>
+            <i class="fa fa-book"></i> <span>Reportes</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="asistencia.php"><i class="fa fa-circle-o"></i> Asistencia</a></li>
-            <li><a href="rptasistencia.php"><i class="fa fa-circle-o"></i> Reportes</a></li>
+            <li><a href="asistencia.php"><i class="fa fa-circle-o"></i> Usuarios</a></li>
+            <li><a href="rptasistencia.php"><i class="fa fa-circle-o"></i> Asistencias</a></li>
            
           </ul>
       </li>
