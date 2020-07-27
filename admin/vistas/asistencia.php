@@ -33,11 +33,10 @@ require 'header.php';
     <thead>
       <th>Id</th>
       <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Fecha Ult. Mod.</th>
+      <th>Apellidos</th>
       <th>Username</th>
+      <th>Fecha Ult. Mod.</th>
       <th>Estado</th>
-   <!--   <th>Asistencia</th>-->
     </thead>
     
   </table>

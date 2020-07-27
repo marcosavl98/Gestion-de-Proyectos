@@ -19,10 +19,16 @@ public function __construct(){
 //	return ejecutarConsulta($sql);
 //}
 
+//public function listar(){
+//	$sql="SELECT a.idasistencia,a.codigo_persona,a.fecha_hora,a.fecha,u.nombre,u.apellidos,u.login,u.idusuario,u.estado,d.nombre as departamento FROM asistencia a INNER JOIN usuarios u INNER JOIN departamento d ON u.iddepartamento=d.iddepartamento WHERE a.codigo_persona=u.codigo_persona";
+//	return ejecutarConsulta($sql);
+//}
+
 public function listar(){
-	$sql="SELECT a.idasistencia,a.codigo_persona,a.fecha_hora,a.fecha,u.nombre,u.apellidos,u.login,u.idusuario,u.estado,d.nombre as departamento FROM asistencia a INNER JOIN usuarios u INNER JOIN departamento d ON u.iddepartamento=d.iddepartamento WHERE a.codigo_persona=u.codigo_persona";
+	$sql="SELECT * FROM usuarios";
 	return ejecutarConsulta($sql);
 }
+
 
 public function listaru($idusuario){
 	$sql="SELECT a.idasistencia,a.codigo_persona,a.fecha_hora,a.tipo,a.fecha,u.nombre,u.apellidos,d.nombre as departamento FROM asistencia a INNER JOIN usuarios u INNER JOIN departamento d ON u.iddepartamento=d.iddepartamento WHERE a.codigo_persona=u.codigo_persona AND u.idusuario='$idusuario'";

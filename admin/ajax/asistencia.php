@@ -61,14 +61,12 @@ switch ($_GET["op"]) {
 
 		while ($reg=$rspta->fetch_object()) {
 			$data[]=array(
-				//"0"=>'<button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>',
 				"0"=>$reg->idusuario,
 				"1"=>$reg->nombre,
 				"2"=>$reg->apellidos,
-				"3"=>$reg->fecha,
-				"4"=>$reg->login,
+				"3"=>$reg->login,
+				"4"=>$reg->fechacreado,
 				"5"=>($reg->estado)?'<span class="label bg-green">Activado</span>':'<span class="label bg-red">Desactivado</span>'
-				//"5"=>$reg->tipo,
 				);
 		}
 
@@ -80,6 +78,8 @@ switch ($_GET["op"]) {
 		echo json_encode($results);
 
 	break;
+
+
 
 	case 'listaru':
     $idusuario=$_SESSION["idusuario"];
