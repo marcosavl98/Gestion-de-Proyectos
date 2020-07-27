@@ -17,8 +17,6 @@ $("#formulario").on("submit",function(e){
 }
 
 
-
-
 //funcion listar
 function listar(){
 	tabla=$('#tbllistado').dataTable({
