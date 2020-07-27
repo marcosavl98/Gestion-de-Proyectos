@@ -7,7 +7,7 @@ $asistencia=new Asistencia();
 $codigo_persona=isset($_POST["codigo_persona"])? limpiarCadena($_POST["codigo_persona"]):"";
 $iddepartamento=isset($_POST["iddepartamento"])? limpiarCadena($_POST["iddepartamento"]):"";
 
-
+//funcion listar solucionada
 
 switch ($_GET["op"]) {
 	case 'guardaryeditar':
@@ -61,13 +61,14 @@ switch ($_GET["op"]) {
 
 		while ($reg=$rspta->fetch_object()) {
 			$data[]=array(
-				"0"=>'<button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>',
-				"1"=>$reg->codigo_persona,
-				"2"=>$reg->nombre,
-				"3"=>$reg->departamento,
-				"4"=>$reg->fecha_hora,
-				"5"=>$reg->tipo,
-				"6"=>$reg->fecha
+				//"0"=>'<button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>',
+				"0"=>$reg->idusuario,
+				"1"=>$reg->nombre,
+				"2"=>$reg->apellidos,
+				"3"=>$reg->fecha,
+				"4"=>$reg->login,
+				"5"=>($reg->estado)?'<span class="label bg-green">Activado</span>':'<span class="label bg-red">Desactivado</span>'
+				//"5"=>$reg->tipo,
 				);
 		}
 
