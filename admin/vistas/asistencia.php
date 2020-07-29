@@ -21,7 +21,7 @@ require 'header.php';
         <div class="col-md-12">
       <div class="box">
 <div class="box-header with-border">
-  <h1 class="box-title">Usuarios</h1>
+  <h1 class="box-title">Usuarios</h1> <small> Reporte</small>
   <div class="box-tools pull-right">
     
   </div>

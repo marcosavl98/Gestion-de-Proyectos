@@ -21,7 +21,7 @@ require 'header.php';
       <div class="box">
 <div class="box-header with-border">
   <h1 class="box-title">Tipo de usuarios 
-    <button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i> Agregar</button></h1>
+    <button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>Agregar</button></h1>
   <div class="box-tools pull-right">
     
   </div>
@@ -35,11 +35,12 @@ require 'header.php';
       <th>Nombre</th>
       <th>Descripcion</th>
       <th>Fecha/registro</th>
-      <!--  <th>Estado</th> -->
+
     </thead>
     <tbody>
     </tbody>
-   </table>
+     
+  </table>
 </div>
 <div class="panel-body" style="height: 400px;" id="formularioregistros">
   <form action="" name="formulario" id="formulario" method="POST">

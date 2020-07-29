@@ -42,7 +42,7 @@ switch ($_GET["op"]) {
 
 		while ($reg=$rspta->fetch_object()) {
 			$data[]=array(
-            "0"=>'<button class="btn btn-warning btn-xs" onclick="mostrar('.$reg->idtipousuario.')"><i class="fa fa-pencil"></i></button>'.' '.'<button class="btn btn-danger btn-xs" onclick="desactivar('.$reg->idtipousuario.')"><i class="fa fa-close"></i></button>',
+            "0"=>'<button class="btn btn-warning btn-xs" onclick="mostrar('.$reg->idtipousuario.')"><i class="fa fa-pencil"></i></button>',
             "1"=>$reg->nombre,
             "2"=>$reg->descripcion,
             "3"=>$reg->fechacreada

@@ -20,10 +20,6 @@ SET time_zone = "+00:00";
 
 --
 -- Base de datos: `control_asistencia`
-
-
-CREATE DATABASE IF NOT EXISTS `control_asistencia` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `control_asistencia`;
 --
 
 -- --------------------------------------------------------
@@ -31,6 +27,9 @@ USE `control_asistencia`;
 --
 -- Estructura de tabla para la tabla `asistencia`
 --
+
+CREATE DATABASE `control_asistencia`;
+USE `control_asistencia`;
 
 CREATE TABLE `asistencia` (
   `idasistencia` int(11) NOT NULL,
@@ -166,7 +165,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idusuario`, `nombre`, `apellidos`, `login`, `iddepartamento`, `idtipousuario`, `email`, `password`, `imagen`, `estado`, `fechacreado`, `usuariocreado`, `codigo_persona`, `idmensaje`) VALUES
-(1, 'admin', 'princip', 'admin', 1, 1, 'administrator@hotmail.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'default.jpg', 1, '2020-01-18 00:00:00', 'admin', '444', 1);
+(1, 'admin', 'compartiendocodigos', 'admin', 1, 1, 'info@compartiendocodigos.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'default.jpg', 1, '2020-01-18 00:00:00', 'admin', '444', 1),
+(2, 'JUAN', 'Lopez Torres', 'juan', 1, 2, 'juan@gmail.com', 'ed08c290d7e22f7bb324b15cbadce35b0b348564fd2d5f95752388d86d71bcca', '1579406789.jpg', 1, '2020-01-18 22:06:29', '0', '789', 0),
+(11, 'Angel', 'totocayo', 'pepe', 1, 2, 'angelinos257@gmail.com', '7c9e7c1494b2684ab7c19d6aff737e460fa9e98d5a234da1310c97ddf5691834', '1579408503.jpg', 1, '2020-01-18 22:35:03', 'Angel', '8VwqyL', 0),
+(14, 'Pedro', 'totocayo', 'coco', 2, 2, 'angelinos257@gmail.com', '4f682b71153ffa91e608445d7ea1257e2076d0d95eab6336cd1aa94b49680f11', '1579415808.jpg', 1, '2020-01-19 00:36:47', 'admin', NULL, 0);
 
 --
 -- Índices para tablas volcadas

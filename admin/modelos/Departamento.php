@@ -18,7 +18,7 @@ public function insertar($nombre,$descripcion,$idusuario){
 }
 
 public function editar($iddepartamento,$nombre,$descripcion,$idusuario){
-	$sql="UPDATE departamento SET nombre='$nombre',descripcion='$descripcion',idusuario='$idusuario',estado='$estado' 
+	$sql="UPDATE departamento SET nombre='$nombre',descripcion='$descripcion',idusuario='$idusuario'
 	WHERE iddepartamento='$iddepartamento'";
 	return ejecutarConsulta($sql);
 }

@@ -94,7 +94,6 @@ function listar(){
 		dom: 'Bfrtip',//definimos los elementos del control de la tabla
 		buttons: [
                   
-                  'excelHtml5',
                   'pdf'
 		],
 		"ajax":

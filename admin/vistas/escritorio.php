@@ -27,23 +27,23 @@ require_once('../modelos/Usuario.php');
 <?php if ($_SESSION['tipousuario']=='Administrador') {
 ?>
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-  <div class="small-box bg-green">
+ <div>
     
-    <a href="asistencia.php" class="small-box-footer">
+   <!-- <a href="asistencia.php" class="small-box-footer">
     <div class="inner">
       <h5 style="font-size: 20px;">
         <strong>Lista De Asistencias </strong>
       </h5>
       <p>Módulo</p>
-    </div>
-    <div class="icon">
+    </div>-->
+    <!--<div class="icon">
       <i class="fa fa-list" aria-hidden="true"></i>
     </div>&nbsp;
      <div class="small-box-footer">
            <i class="fa"></i>
-     </div>
+     </div>-->
 
-    </a>
+<!--</a>-->
   </div>
 </div>
 <?php } ?>
@@ -52,7 +52,7 @@ require_once('../modelos/Usuario.php');
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
   <div class="small-box bg-green">
     
-    <a href="asistenciau.php" class="small-box-footer">
+<!--    <a href="asistenciau.php" class="small-box-footer">
     <div class="inner">
       <h5 style="font-size: 20px;">
         <strong>Mi lista asistencias </strong>
@@ -66,7 +66,7 @@ require_once('../modelos/Usuario.php');
            <i class="fa"></i>
      </div>
 
-    </a>
+    </a>-->
   </div>
 </div>
 <?php } ?>
@@ -79,7 +79,7 @@ require_once('../modelos/Usuario.php');
   <div class="small-box bg-orange">
     <div class="inner">
       <h4 style="font-size: 20px;">
-        <strong>Empleados:   </strong>
+        <strong>Usuarios:   </strong>
       </h4>
       <p>Total <?php echo $reg->nombre; ?></p>
     </div>
@@ -92,24 +92,24 @@ require_once('../modelos/Usuario.php');
 <?php } ?>
 
 
-<?php if ($_SESSION['tipousuario']=='Administrador') {
+<!--<?php if ($_SESSION['tipousuario']=='Administrador') {
 ?>
-<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-  <div class="small-box bg-aqua">
+<!--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+ <!-- <div class="small-box bg-aqua">
     
-    <a href="rptasistencia.php" class="small-box-footer">
+    <!--<a href="rptasistencia.php" class="small-box-footer">
     <div class="inner">
       <h5 style="font-size: 20px;">
-        <strong>Reporte de asistencias </strong>
+      <!--  <strong>Reporte de asistencias </strong>
       </h5>
       <p>Módulo</p>
-    </div>
-    <div class="icon">
+    </div>  
+    <!--<div class="icon"> 
       <i class="fa fa-list" aria-hidden="true"></i>
     </div>&nbsp;
      <div class="small-box-footer">
            <i class="fa"></i>
-     </div>
+     </div> -->
 
     </a>
   </div>

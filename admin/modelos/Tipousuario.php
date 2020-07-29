@@ -18,18 +18,18 @@ public function insertar($nombre,$descripcion,$idusuario){
 }
 
 public function editar($idtipousuario,$nombre,$descripcion,$idusuario){
-	$sql="UPDATE tipousuario SET nombre='$nombre',descripcion='$descripcion',idusuario='$idusuario' 
+	$sql="UPDATE tipousuario SET nombre='$nombre',descripcion='$descripcion',idusuario='$idusuario'
 	WHERE idtipousuario='$idtipousuario'";
 	return ejecutarConsulta($sql);
 }
-public function desactivar($idtipousuario){
-	$sql="UPDATE tipousuario SET fechacreada='0' WHERE idtipousuario='$idtipousuario'";
-	return ejecutarConsulta($sql);
-}
-public function activar($idtipousuario){
-	$sql="UPDATE tipousuario SET fechacreada='1' WHERE idtipousuario='$idtipousuario'";
-	return ejecutarConsulta($sql);
-}
+//public function desactivar($idtipousuario){
+//	$sql="UPDATE tipousuario SET estado='0' WHERE idtipousuario='$idtipousuario'";
+//	return ejecutarConsulta($sql);
+//}
+//public function activar($idtipousuario){
+//	$sql="UPDATE tipousuario SET estado='1' WHERE idtipousuario='$idtipousuario'";
+//	return ejecutarConsulta($sql);
+//}
 
 //metodo para mostrar registros
 public function mostrar($idtipousuario){
