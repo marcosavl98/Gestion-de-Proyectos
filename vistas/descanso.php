@@ -68,7 +68,7 @@
   </div>
     <div class="col-xs-4">
              
-           <p text align="right"> <a href="http://localhost/Gestion-de-Proyectos/vistas/asistencia.php"> <button type="button" class=" btn btn-danger fa fa-close"> Volver </button> </p>
+           <p text align="right"> <a href="http://localhost/asistencia/vistas/asistencia.php"> <button type="button" class=" btn btn-danger fa fa-close"> Volver </button> </p>
             </div><!-- /.col -->
 </div>
 <!-- /.center -->
@@ -81,7 +81,7 @@
      <!-- Bootbox -->
     <script src="../admin/public/js/bootbox.min.js"></script>
 
-    <script type="text/javascript" src="scripts/asistencia.js"></script>
+    <script type="text/javascript" src="scripts/descanso.js"></script>
 
 
   </body>
