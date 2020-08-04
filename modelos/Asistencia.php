@@ -37,7 +37,21 @@ public function registrar_salida($codigo_persona,$tipo){
     return ejecutarConsulta($sql);
 }
 
+public function registrar_iniciob($codigo_persona,$tipo){
+	date_default_timezone_set('America/Lima');
+	$fecha = date("Y-m-d");
+	$hora = date("H:i:s");
+ 	$sql = "INSERT INTO asistencia (codigo_persona,  tipo, fecha) VALUES ('$codigo_persona', '$tipo', '$fecha')";
+    return ejecutarConsulta($sql);
+}
 
+public function registrar_finalb($codigo_persona,$tipo){
+	date_default_timezone_set('America/Lima');
+	$fecha = date("Y-m-d");
+	$hora = date("H:i:s");
+ 	$sql = "INSERT INTO asistencia (codigo_persona,  tipo, fecha) VALUES ('$codigo_persona', '$tipo', '$fecha')";
+    return ejecutarConsulta($sql);
+}
 
 //listar registros
 public function listar(){
