@@ -40,7 +40,8 @@ switch ($_GET["op"]) {
                          </div>';
         }
 
-	break;
+
+  break;
 
 }
 ?>
