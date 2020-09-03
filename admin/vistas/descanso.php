@@ -21,7 +21,7 @@ require 'header.php';
         <div class="col-md-12">
       <div class="box">
 <div class="box-header with-border">
-  <h1 class="box-title">Usuarios</h1> <small> Reporte</small>
+  <h1 class="box-title">Descanso</h1> <small> Listado</small>
   <div class="box-tools pull-right">
     
   </div>
@@ -31,11 +31,11 @@ require 'header.php';
 <div class="panel-body table-responsive" id="listadoregistros">
 <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
     <thead>
-      <th>Código</th>
+      <th>Nro. de Cédula </th>
       <th>Nombre</th>
       <th>Apellidos</th>
-      <th>Username</th>
-      <th>Fecha Ult. Mod.</th>
+      <th>Departamento</th>
+      <th>Tipo</th>
       <th>Estado</th>
     </thead>
     
@@ -54,7 +54,7 @@ require 'header.php';
 
 require 'footer.php';
  ?>
- <script src="scripts/asistencia.js"></script>
+ <script src="scripts/descanso.js"></script>
  <?php 
 }
 

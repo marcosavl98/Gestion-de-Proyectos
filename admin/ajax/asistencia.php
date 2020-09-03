@@ -26,13 +26,13 @@ switch ($_GET["op"]) {
 
           if ($par == 0){ 
                               
-                $tipo = "Entrada";
-        		$rspta=$asistencia->registrar_entrada($codigo_persona,$tipo);
+                $entrada = "Entrada";
+        		$rspta=$asistencia->registrar_entrada($codigo_persona,$entrada);
     			//$movimiento = 0;
     			echo $rspta ? '<h3><strong>Nombres: </strong> '. $result['nombre'].' '.$result['apellidos'].'</h3><div class="alert alert-success"> Ingreso registrado '.$hora.'</div>' : 'No se pudo registrar el ingreso';
    		  }else{ 
-                $tipo = "Salida";
-         		$rspta=$asistencia->registrar_salida($codigo_persona,$tipo);
+                $salida = "Salida";
+         		$rspta=$asistencia->registrar_salida($codigo_persona,$salida);
      			//$movimiento = 1;
      			echo $rspta ? '<h3><strong>Nombres: </strong> '. $result['nombre'].' '.$result['apellidos'].'</h3><div class="alert alert-danger"> Salida registrada '.$hora.'</div>' : 'No se pudo registrar la salida';             
         } 
@@ -92,12 +92,14 @@ switch ($_GET["op"]) {
 		while ($reg=$rspta->fetch_object()) {
 			$data[]=array(
 				"0"=>'<button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>',
-				"1"=>$reg->codigo_persona,
-				"2"=>$reg->nombre,
+				"1"=>$reg->nombre,
+				"2"=>$reg->apellidos,
 				"3"=>$reg->departamento,
-				"4"=>$reg->fecha_hora,
-				"5"=>$reg->tipo,
-				"6"=>$reg->fecha
+				"4"=>$reg->fecha,
+				"5"=>$reg->entrada,
+				"5"=>$reg->iniciob,
+				"7"=>$reg->finalb,
+				"8"=>$reg->salida
 				);
 		}
 
@@ -123,9 +125,12 @@ switch ($_GET["op"]) {
 			$data[]=array(
 				"0"=>$reg->fecha,
 				"1"=>$reg->nombre,
-				"2"=>$reg->tipo,
-				"3"=>$reg->fecha_hora,
-				"4"=>$reg->codigo_persona
+				"2"=>$reg->entrada,
+				"3"=>$reg->iniciob,
+				"4"=>$reg->finalb,
+				"5"=>$reg->salida,
+				"6"=>$reg->fecha_hora,
+				"7"=>$reg->codigo_persona
 				);
 		}
 
@@ -150,9 +155,12 @@ switch ($_GET["op"]) {
 			$data[]=array(
 				"0"=>$reg->fecha,
 				"1"=>$reg->nombre,
-				"2"=>$reg->tipo,
-				"3"=>$reg->fecha_hora,
-				"4"=>$reg->codigo_persona
+				"2"=>$reg->entrada,
+				"3"=>$reg->iniciob,
+				"4"=>$reg->finalb,
+				"5"=>$reg->salida,
+				"6"=>$reg->fecha_hora,
+				"7"=>$reg->codigo_persona
 				);
 		}
 

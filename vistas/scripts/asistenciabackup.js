@@ -1,13 +1,13 @@
 var tabla;
 
 //funcion que se ejecuta al inicio
-//function init(){
-//$("#formulario").on("submit",function(e){
-  // 	registrar_descanso(e);
-   //})
+function init(){
+$("#formulario").on("submit",function(e){
+   	registrar_asistencia(e);
+   })
 
 
-//}
+}
 
 //funcion limpiar
 function limpiar(){
@@ -16,13 +16,13 @@ function limpiar(){
 
 }
 
-function registrar_descanso(e){
+function registrar_asistencia(e){
      e.preventDefault();//no se activara la accion predeterminada 
      $("#btnGuardar").prop("disabled",true);
      var formData=new FormData($("#formulario")[0]);
 
      $.ajax({
-     	url: "../ajax/descanso.php?op=registrar_descanso",
+     	url: "../ajax/asistencia.php?op=registrar_asistencia",
      	type: "POST",
      	data: formData,
      	contentType: false,
@@ -40,4 +40,4 @@ function registrar_descanso(e){
 
 
 
-init();
+//init();

@@ -1,14 +1,3 @@
-var tabla;
-
-//funcion que se ejecuta al inicio
-function init(){
-$("#formulario").on("submit",function(e){
-   	registrar_asistencia(e);
-   })
-
-
-}
-
 //funcion limpiar
 function limpiar(){
 	$("#codigo_persona").val("");
@@ -16,28 +5,95 @@ function limpiar(){
 
 }
 
-function registrar_asistencia(e){
+$("#btn_entrada").on("click",function(e){
      e.preventDefault();//no se activara la accion predeterminada 
-     $("#btnGuardar").prop("disabled",true);
-     var formData=new FormData($("#formulario")[0]);
+    // alert('entro');
+    var parametros = $("#codigo_persona").val();
+    //alert(parametros);
+    $.ajax({
+        url: "../ajax/asistencia.php?op=registrar_entrada",
+        type: "POST",
+        data: "codigo_persona=" + parametros,
+      
 
-     $.ajax({
-     	url: "../ajax/asistencia.php?op=registrar_asistencia",
-     	type: "POST",
-     	data: formData,
-     	contentType: false,
-     	processData: false,
-
-     	success: function(datos){
-     			$("#movimientos").html(datos);
-     		//bootbox.alert(datos);
-     	}
+        success: function(datos){
+                $("#movimientos").html(datos);
+              // setTimeout('document.location.reload()',2000);
+            //bootbox.alert(datos);
+        }
      });
-     limpiar();
-}
+
+limpiar();
+
+});
 
 
 
+$("#btn_salida").on("click",function(e){
+     e.preventDefault();//no se activara la accion predeterminada 
+    // alert('entro');
+    var parametros = $("#codigo_persona").val();
+    //alert(parametros);
+    $.ajax({
+        url: "../ajax/asistencia.php?op=registrar_salida",
+        type: "POST",
+        data: "codigo_persona=" + parametros,
+      
+
+        success: function(datos){
+                $("#movimientos").html(datos);
+              // setTimeout('document.location.reload()',2000);
+            //bootbox.alert(datos);
+        }
+     });
+
+limpiar();
+
+});
 
 
-init();
+$("#btn_iniciob").on("click",function(e){
+     e.preventDefault();//no se activara la accion predeterminada 
+    // alert('entro');
+    var parametros = $("#codigo_persona").val();
+    //alert(parametros);
+    $.ajax({
+        url: "../ajax/asistencia.php?op=registrar_iniciob",
+        type: "POST",
+        data: "codigo_persona=" + parametros,
+        //contentType: false,
+        //processData: false,
+
+        success: function(datos){
+                $("#movimientos").html(datos);
+              //  setTimeout('document.location.reload()',2000);
+            //bootbox.alert(datos);
+        }
+     });
+
+limpiar();
+});
+
+$("#btn_finalb").on("click",function(e){
+     e.preventDefault();//no se activara la accion predeterminada 
+    // alert('entro');
+    var parametros = $("#codigo_persona").val();
+    //alert(parametros);
+    $.ajax({
+        url: "../ajax/asistencia.php?op=registrar_finalb",
+        type: "POST",
+        data: "codigo_persona=" + parametros,
+        //contentType: false,
+        //processData: false,
+
+        success: function(datos){
+                $("#movimientos").html(datos);
+               // setTimeout('document.location.reload()',2000);
+            //bootbox.alert(datos);
+        }
+     });
+
+limpiar();
+});
+
+

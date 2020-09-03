@@ -61,14 +61,15 @@ switch ($_GET["op"]) {
 
 		while ($reg=$rspta->fetch_object()) {
 			$data[]=array(
-				
-				"0"=>$reg->nombre,
-				"1"=>$reg->apellidos,
-				"2"=>$reg->fecha,
-				"3"=>$reg->entrada,
-				"4"=>$reg->iniciob,
-				"5"=>$reg->finalb,
-				"6"=>$reg->salida
+				"0"=>$reg->codigo_persona,
+				"1"=>$reg->nombre,
+				"2"=>$reg->apellidos,
+				"3"=>$reg->departamento,
+				"4"=>$reg->fecha,
+				"5"=>$reg->entrada,
+				"6"=>$reg->iniciob,
+				"7"=>$reg->finalb,
+				"8"=>$reg->salida
 				);
 		}
 		
@@ -101,8 +102,10 @@ switch ($_GET["op"]) {
 				"5"=>$reg->entrada,
 				"6"=>$reg->iniciob,
 				"7"=>$reg->finalb,
-				"8"=>$reg->salida
-			
+				"8"=>$reg->salida,
+				"9"=>$reg->totalentrsal,
+				"10"=>$reg->totalbreak,
+				"11"=>$reg->totalhorastra
 				);
 		}
 

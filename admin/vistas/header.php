@@ -129,7 +129,7 @@ if (strlen(session_id())<1)
           <ul class="treeview-menu">
             <li><a href="usuario.php"><i class="fa fa-circle-o"></i> Usuarios</a></li>
             <li><a href="tipousuario.php"><i class="fa fa-circle-o"></i> Tipo de Usuario</a></li>
-           <!-- <li><a href="departamento.php"><i class="fa fa-circle-o"></i> Departamentos</a></li>-->
+            <li><a href="tipoasistencia.php"><i class="fa fa-circle-o"></i> Horas Trabajadas</a></li>
           </ul>
       </li>
 
@@ -154,10 +154,34 @@ if (strlen(session_id())<1)
           </a>
           <ul class="treeview-menu">
             <li><a href="asistencia.php"><i class="fa fa-circle-o"></i> Usuarios</a></li>
-           <!-- <li><a href="rptasistencia.php"><i class="fa fa-circle-o"></i> Asistencias</a></li>-->
+           <li><a href="asistencia1.php"><i class="fa fa-circle-o"></i> Asistencias</a></li>
            
           </ul>
+
       </li>
+
+
+<li class="treeview">
+          <a href="#">
+            <i class="fa fa-circle"></i> <span>Configuracion</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="configuracion.php"><i class="fa fa-circle-o"></i> Configuración</a></li>
+           
+          </ul>
+
+      </li>
+
+
+
+
+
+
+
+
 <?php } ?>
 <?php if ($_SESSION['tipousuario']!='Administrador') {
 ?>

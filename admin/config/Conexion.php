@@ -1,6 +1,6 @@
 <?php 
 require_once "global.php";
-
+date_default_timezone_set('America/Asuncion');
 $conexion=new mysqli(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
 
 mysqli_query($conexion, 'SET NAMES "'.DB_ENCODE.'"');

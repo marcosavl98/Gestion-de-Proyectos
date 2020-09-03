@@ -140,7 +140,7 @@ if (strlen(session_id())<1)
           <ul class="treeview-menu">
             <li><a href="usuario.php"><i class="fa fa-circle-o"></i> Usuarios</a></li>
             <li><a href="tipousuario.php"><i class="fa fa-circle-o"></i> Tipo Usuario</a></li>
-            <li><a href="departamento.php"><i class="fa fa-circle-o"></i> Departamento</a></li>
+            <li><a href="tipousuario.php"><i class="fa fa-circle-o"></i> Tipo Usuario</a></li>
           </ul>
       </li>
 

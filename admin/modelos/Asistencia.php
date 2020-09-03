@@ -40,6 +40,13 @@ public function listar_asistencia($fecha_inicio,$fecha_fin,$codigo_persona){
 	return ejecutarConsulta($sql);
 }
 
+public function calcular (){
+
+$sql="SELECT a.idasistencia,a.codigo_persona,a.fecha_hora,a.tipo,a.fecha,u.nombre,u.apellidos FROM asistencia a INNER JOIN usuarios u ON  a.codigo_persona=u.codigo_persona WHERE DATE(a.fecha)>='$fecha_inicio' AND DATE(a.fecha)<='$fecha_fin' AND a.codigo_persona='$codigo_persona'";
+	return ejecutarConsulta($sql);
+}
+
+
 
 }
 

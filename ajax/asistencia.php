@@ -1,47 +1,113 @@
 <?php 
 require_once "../modelos/Asistencia.php";
-
+require_once "../modelos/Descanso.php";
 $asistencia=new Asistencia();
+$descanso=new Descanso();
 
-$codigo_persona=isset($_POST["codigo_persona"])? limpiarCadena($_POST["codigo_persona"]):"";
-$iddepartamento=isset($_POST["iddepartamento"])? limpiarCadena($_POST["iddepartamento"]):"";
-
+$codigo_persona=$_POST["codigo_persona"];
 
 
 switch ($_GET["op"]) {
-	case 'registrar_asistencia':
-		$result=$asistencia->verificarcodigo_persona($codigo_persona);
 
-      	if($result > 0) {
-	date_default_timezone_set('America/Lima');
-      		$fecha = date("Y-m-d");
-			$hora = date("H:i:s");
+	case 'registrar_entrada':
+   
+     $resultado=$asistencia->verificarcodigo_persona($codigo_persona);
 
-			$result2=$asistencia->seleccionarcodigo_persona($codigo_persona);
-     		$count2 = mysqli_num_rows($result2);
-			   
-     		$par = abs($count2%2); 
+       if($resultado > 0) {
 
-          if ($par == 0){ 
-                              
-                $tipo = "Entrada";
-        		$rspta=$asistencia->registrar_entrada($codigo_persona,$tipo);
-    			//$movimiento = 0;
-    			echo $rspta ? '<h3><strong>Nombres: </strong> '. $result['nombre'].' '.$result['apellidos'].'</h3><div class="alert alert-success"> Ingreso registrado '.$hora.'</div>' : 'No se pudo registrar el ingreso';
-   		  }else{ 
-                $tipo = "Salida";
-         		$rspta=$asistencia->registrar_salida($codigo_persona,$tipo);
-     			//$movimiento = 1;
-     			echo $rspta ? '<h3><strong>Nombres: </strong> '. $result['nombre'].' '.$result['apellidos'].'</h3><div class="alert alert-danger"> Salida registrada '.$hora.'</div>' : 'No se pudo registrar la salida';             
-        } 
+        $fecha = date("Y-m-d");
+
+         $verificarentrada=$asistencia->verificar_entrada($codigo_persona,$fecha);
+     //var_dump($verificarentrada);
+         $count = mysqli_num_rows($verificarentrada);
+
+         if ($count > 0 ){
+
+         echo '<div class="alert alert-danger">
+                     <i class="icon fa fa-warning"></i> Ya registraste tu entrada hoy !!
+                          </div>';
+         }else{
+
+          $respuesta=$asistencia->registrar_entrada($codigo_persona);
+
+          echo $respuesta ? '<h3><strong>Nombres: </strong> '. $resultado['nombre'].' '.$resultado['apellidos'].'</h3><div class="alert alert-success"> Entrada Registrada </div>' : 'No se pudo registrar el ingreso';
+         }
+         
+     
+
         } else {
-		         echo '<div class="alert alert-danger">
-                       <i class="icon fa fa-warning"></i> No hay empleado registrado con ese Nro. de Cedula!
-                         </div>';
+           echo '<div class="alert alert-danger">
+                     <i class="icon fa fa-warning"></i> No hay empleado registrado con ese Nro. de Cedula!
+                          </div>';
         }
 
 
   break;
+
+
+case 'registrar_salida':
+   
+     $resultado=$asistencia->verificarcodigo_persona($codigo_persona);
+
+       if($resultado > 0) {
+
+     
+          $respuesta=$asistencia->registrar_salida($codigo_persona);
+                    
+//     echo $respuesta;
+
+          echo $respuesta ? '<h3><strong>Nombres: </strong> '. $resultado['nombre'].' '.$resultado['apellidos'].'</h3><div class="alert alert-danger"> Salida Registrada </div>' : 'No se pudo registrar la salida';
+        } else {
+           echo '<div class="alert alert-danger">
+                     <i class="icon fa fa-warning"></i> No hay empleado registrado con ese Nro. de Cedula!
+                          </div>';
+        }
+
+
+  break;
+
+
+case 'registrar_iniciob':
+   
+     $resultado=$asistencia->verificarcodigo_persona($codigo_persona);
+
+       if($resultado > 0) {
+
+          $fecha_hora = date("Y-m-d H:i:s");
+     
+          $respuesta=$asistencia->registrar_iniciob($codigo_persona);
+                    
+        //  echo "line33". $respuesta;
+          echo $respuesta ? '<h3><strong>Nombres: </strong> '. $resultado['nombre'].' '.$resultado['apellidos'].'</h3><div class="alert alert-success"> Inicio del Break registrado </div>' : 'No se pudo registrar el Inicio del Break';
+        } else {
+           echo '<div class="alert alert-danger">
+                     <i class="icon fa fa-warning"></i> No hay empleado registrado con ese Nro. de Cedula!
+                          </div>';
+        }
+
+
+  break;
+
+case 'registrar_finalb':
+   
+     $resultado=$asistencia->verificarcodigo_persona($codigo_persona);
+
+       if($resultado > 0) {
+     
+          $respuesta=$asistencia->registrar_finalb($codigo_persona);
+                    
+        //  echo "line33". $respuesta;
+          echo $respuesta ? '<h3><strong>Nombres: </strong> '. $resultado['nombre'].' '.$resultado['apellidos'].'</h3><div class="alert alert-danger"> Final del Break registrado </div>' : 'No se pudo registrar el Final del Break';
+        } else {
+           echo '<div class="alert alert-danger">
+                     <i class="icon fa fa-warning"></i> No hay empleado registrado con ese Nro. de Cedula!
+                          </div>';
+        }
+
+
+  break;
+
+
 
 }
 ?>

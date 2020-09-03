@@ -15,47 +15,89 @@
     <link rel="stylesheet" href="../admin/public/css/AdminLTE.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="../admin/public/css/blue.css">
-    <link rel="shortcut icon" href="../admin/public/img/reloj.png">
+   <!-- <link rel="shortcut icon" href="../admin/public/img/reloj.png">-->
 
   </head>
-<body class="hold-transition lockscreen">
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="../../index2.html"><b>Reloj </b> Marcador</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">Ingresa tu codigo de empleado y seleccione la opcion</p>
 
-<!-- Automatic element centering -->
-<div class="lockscreen-wrapper">
-<?php 
- //include '../ajax/asistencia.php' ?>
+    <form method="post">
+    
+  <div class="form-group">
+  <label class="col-md-4 control-label" for="codigo_persona">Codigo </label>  
+  <div class="col-md-4">
+ 
+  </div>
+</div>
+
+
+      <div class="form-group has-feedback">
+        <input id="codigo_persona" name="codigo_persona" type="text" placeholder="Codigo de empleado" class="form-control input-md" required="">
+  <span class="help-block">Ingrese su codigo sin puntos </span>  
+      </div>
+   
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="checkbox icheck">
+           
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-md-8">
+           <button id="btn_entrada" name="btn_entrada" class="btn btn-success">Entrada</button>
+           <button id="btn_salida" name="btn_salida" class="btn btn-danger">Salida</button>
+           
+        </div>
+
+         <div class="col-md-8">
+
+    <button id="btn_iniciob" name="btn_iniciob" class="btn btn-success">Inicio Break</button>
+    <button id="btn_finalb" name="btn_finalb" class="btn btn-danger">Final Break</button>
+  </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+   
+  <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
+
+
+
+
+
     <div name="movimientos" id="movimientos">
     </div> 
 
 
 
-  <div class="lockscreen-logo">
-    <a href="#"><b>Reloj </b> Marcador <b> (Break) </b> </a>
+
+   <form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+
+
+<!-- Text input-->
+
+
+<!-- Button (Double) -->
+
+ 
   </div>
-  <!-- User name -->
-  <div class="lockscreen-name">Ingrese su Nro. de Cédula  </div>
- <div class="help-block text-center">
-   Para registrar Break
-  </div>
-  <!-- START LOCK SCREEN ITEM -->
-  <div class="lockscreen-item">
-    <!-- lockscreen image -->
-    <div class="lockscreen-image">
+</div>
 
-      <img src="../admin/files/negocio/reloj.png" alt="User Image">
-    </div>
-    <!-- /.lockscreen-image -->
+<!-- Button (Double) -->
 
-    <!-- lockscreen credentials (contains the form) -->
-    <form  action="" class="lockscreen-credentials" name="formulario" id="formulario" method="POST">
-      <div class="input-group">
-        <input type="password" class="form-control" name="codigo_persona" id="codigo_persona" placeholder="Nro. de Cédula">
-
-        <div class="input-group-btn">
-          <button type="submit" class="btn btn-primary"><i class="fa fa-arrow-right text-muted"></i></button>
-        </div>
-      </div>
-    </form>
+</fieldset>
+</form>
     <!-- /.lockscreen credentials -->
 
   </div>
@@ -64,15 +106,18 @@
     Ingresa tu Clave de asistencia
   </div> -->
   <div class="text-center">
+<div class="col-xs-4">
 
-  </div>
-    <div class="col-xs-4">
-             
-           <p text align="right"> <a href="http://localhost/Gestion-de-Proyectos/vistas/asistencia.php"> <button type="button" class=" btn btn-danger fa fa-close"> Volver </button> </p>
+
+
+<a href="http://localhost/Gestion-de-Proyectos/vistas/asistencia.php" class="btn btn-primary btn-danger pull-right"><span class="glyphicon glyphicon-chevron-left"></span> Volver</a>
             </div><!-- /.col -->
+  </div>
+    
 </div>
 <!-- /.center -->
 
+</div>
 
     <!-- jQuery -->
     <script src="../admin/public/js/jquery-3.1.1.min.js"></script>
@@ -81,8 +126,7 @@
      <!-- Bootbox -->
     <script src="../admin/public/js/bootbox.min.js"></script>
 
-    <script type="text/javascript" src="scripts/descanso.js"></script>
-
+    <script type="text/javascript" src="scripts/asistencia.js"></script>
 
   </body>
 </html> 

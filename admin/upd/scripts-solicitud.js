@@ -76,10 +76,7 @@ function listar(){
 		"aServerSide": true,//paginacion y filrado realizados por el server
 		dom: 'Bfrtip',//definimos los elementos del control de la tabla
 		buttons: [
-                  'copyHtml5',
-                  'excelHtml5',
-                  'csvHtml5',
-                  'pdf'
+                     'pdf'
 		],
 		"ajax":
 		{

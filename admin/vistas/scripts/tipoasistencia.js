@@ -9,12 +9,14 @@ $("#formulario").on("submit",function(e){
    })
 
     //cargamos los items al select cliente
-   $.post("../ajax/asistencia.php?op=selectPersona", function(r){
+   $.post("../ajax/tipoasistencia.php?op=selectPersona", function(r){
    	$("#idcliente").html(r);
    	$('#idcliente').selectpicker('refresh');
    });
 
 }
+
+
 
 
 //funcion listar
@@ -24,12 +26,12 @@ function listar(){
 		"aServerSide": true,//paginacion y filrado realizados por el server
 		dom: 'Bfrtip',//definimos los elementos del control de la tabla
 		buttons: [
-                  
+                
                   'pdf'
 		],
 		"ajax":
 		{
-			url:'../ajax/asistencia.php?op=listar',
+			url:'../ajax/tipoasistencia.php?op=listar',
 			type: "get",
 			dataType : "json",
 			error:function(e){
@@ -52,7 +54,7 @@ function listaru(){
 		],
 		"ajax":
 		{
-			url:'../ajax/asistencia.php?op=listaru',
+			url:'../ajax/tipoasistencia.php?op=listaru',
 			type: "get",
 			dataType : "json",
 			error:function(e){
@@ -82,7 +84,7 @@ var  fecha_inicio = $("#fecha_inicio").val();
 		],
 		"ajax":
 		{
-			url:'../ajax/asistencia.php?op=listar_asistencia',
+			url:'../ajax/tipoasistencia.php?op=listar_asistencia',
 			data:{fecha_inicio:fecha_inicio, fecha_fin:fecha_fin, idcliente: idcliente},
 			type: "get",
 			dataType : "json",
@@ -109,7 +111,7 @@ var  fecha_inicio = $("#fecha_inicio").val();
 		],
 		"ajax":
 		{
-			url:'../ajax/asistencia.php?op=listar_asistenciau',
+			url:'../ajax/tipoasistencia.php?op=listar_asistenciau',
 			data:{fecha_inicio:fecha_inicio, fecha_fin:fecha_fin},
 			type: "get",
 			dataType : "json",

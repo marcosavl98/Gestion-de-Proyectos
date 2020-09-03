@@ -1,150 +1,106 @@
--- phpMyAdmin SQL Dump
--- version 4.9.4
--- https://www.phpmyadmin.net/
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 03-02-2020 a las 01:18:04
--- Versión del servidor: 10.4.6-MariaDB
--- Versión de PHP: 7.3.8
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Versión del servidor:         10.4.10-MariaDB - mariadb.org binary distribution
+-- SO del servidor:              Win64
+-- HeidiSQL Versión:             11.0.0.5919
+-- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
---
--- Base de datos: `control_asistencia`
---
 
--- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `asistencia`
---
-
-CREATE DATABASE `control_asistencia`;
-USE `control_asistencia`;
-
-CREATE TABLE `asistencia` (
-  `idasistencia` int(11) NOT NULL,
+-- Volcando estructura para tabla control_asistencia.asistencia
+CREATE TABLE IF NOT EXISTS `asistencia` (
+  `idasistencia` int(11) NOT NULL AUTO_INCREMENT,
   `codigo_persona` varchar(20) COLLATE utf8_bin NOT NULL,
   `fecha_hora` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `tipo` varchar(45) COLLATE utf8_bin NOT NULL,
-  `fecha` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `entrada` time DEFAULT '00:00:00',
+  `iniciob` time DEFAULT '00:00:00',
+  `finalb` time DEFAULT '00:00:00',
+  `salida` time DEFAULT '00:00:00',
+  `fecha` date NOT NULL,
+  PRIMARY KEY (`idasistencia`)
+) ENGINE=InnoDB AUTO_INCREMENT=339 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
---
--- Volcado de datos para la tabla `asistencia`
---
+-- Volcando datos para la tabla control_asistencia.asistencia: ~4 rows (aproximadamente)
+DELETE FROM `asistencia`;
+/*!40000 ALTER TABLE `asistencia` DISABLE KEYS */;
+INSERT INTO `asistencia` (`idasistencia`, `codigo_persona`, `fecha_hora`, `entrada`, `iniciob`, `finalb`, `salida`, `fecha`) VALUES
+	(335, '1509', '2020-08-29 21:43:19', '20:43:19', '00:00:00', '00:00:00', '00:00:00', '2020-08-29'),
+	(336, '1509', '2020-08-29 21:43:24', '00:00:00', '21:43:24', '00:00:00', '00:00:00', '2020-08-29'),
+	(337, '1509', '2020-08-29 21:43:29', '00:00:00', '00:00:00', '21:43:29', '00:00:00', '2020-08-29'),
+	(338, '1509', '2020-08-29 21:43:34', '00:00:00', '00:00:00', '00:00:00', '20:43:34', '2020-08-29');
+/*!40000 ALTER TABLE `asistencia` ENABLE KEYS */;
 
-INSERT INTO `asistencia` (`idasistencia`, `codigo_persona`, `fecha_hora`, `tipo`, `fecha`) VALUES
-(112, '444', '2020-02-01 03:01:00', 'Entrada', '2020-01-31'),
-(113, '789', '2020-02-01 03:01:03', 'Entrada', '2020-01-31'),
-(114, '789', '2020-02-01 03:01:06', 'Salida', '2020-01-31'),
-(115, '444', '2020-02-01 03:01:08', 'Salida', '2020-01-31'),
-(116, '444', '2020-02-01 03:01:28', 'Entrada', '2020-01-31'),
-(117, '789', '2020-02-01 03:01:43', 'Entrada', '2020-01-31'),
-(118, '444', '2020-02-01 03:06:12', 'Salida', '2020-01-31'),
-(119, '444', '2020-02-01 03:06:17', 'Entrada', '2020-01-31'),
-(120, '789', '2020-02-01 03:08:33', 'Salida', '2020-01-31'),
-(121, '789', '2020-02-01 03:08:38', 'Entrada', '2020-01-31'),
-(122, '444', '2020-02-01 03:08:44', 'Salida', '2020-01-31'),
-(123, '444', '2020-02-01 03:08:49', 'Entrada', '2020-01-31'),
-(124, '8VwqyL', '2020-02-01 03:22:02', 'Entrada', '2020-01-31'),
-(125, '8VwqyL', '2020-02-01 03:22:04', 'Salida', '2020-01-31'),
-(126, '8VwqyL', '2020-02-01 03:22:07', 'Entrada', '2020-01-31'),
-(127, '8VwqyL', '2020-02-01 03:22:11', 'Salida', '2020-01-31'),
-(128, '444', '2020-02-03 00:15:42', 'Salida', '2020-02-02'),
-(129, '444', '2020-02-03 00:15:47', 'Entrada', '2020-02-02'),
-(130, '789', '2020-02-03 00:15:54', 'Salida', '2020-02-02'),
-(131, '789', '2020-02-03 00:16:00', 'Entrada', '2020-02-02');
+-- Volcando estructura para tabla control_asistencia.configuracion
+CREATE TABLE IF NOT EXISTS `configuracion` (
+  `idconfiguracion` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(200) NOT NULL,
+  `ruc` varchar(200) NOT NULL,
+  `direccion` varchar(200) NOT NULL,
+  `telefono` varchar(200) NOT NULL,
+  `precio` varchar(50) NOT NULL,
+  PRIMARY KEY (`idconfiguracion`)
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
+-- Volcando datos para la tabla control_asistencia.configuracion: 1 rows
+DELETE FROM `configuracion`;
+/*!40000 ALTER TABLE `configuracion` DISABLE KEYS */;
+INSERT INTO `configuracion` (`idconfiguracion`, `nombre`, `ruc`, `direccion`, `telefono`, `precio`) VALUES
+	(44, 'asisper1', '231426', 'itaugua', '0976654', '2500000');
+/*!40000 ALTER TABLE `configuracion` ENABLE KEYS */;
 
---
--- Estructura de tabla para la tabla `departamento`
---
-
-CREATE TABLE `departamento` (
-  `iddepartamento` int(11) NOT NULL,
-  `nombre` varchar(45) COLLATE utf8_bin NOT NULL,
-  `descripcion` varchar(45) COLLATE utf8_bin NOT NULL,
+-- Volcando estructura para tabla control_asistencia.departamento
+CREATE TABLE IF NOT EXISTS `departamento` (
+  `iddepartamento` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) COLLATE utf8_bin NOT NULL,
+  `descripcion` varchar(100) COLLATE utf8_bin NOT NULL,
   `fechacreada` datetime NOT NULL,
-  `idusuario` varchar(45) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `estado` tinyint(4) NOT NULL,
+  `idusuario` varchar(45) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`iddepartamento`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
---
--- Volcado de datos para la tabla `departamento`
---
+-- Volcando datos para la tabla control_asistencia.departamento: ~8 rows (aproximadamente)
+DELETE FROM `departamento`;
+/*!40000 ALTER TABLE `departamento` DISABLE KEYS */;
+INSERT INTO `departamento` (`iddepartamento`, `nombre`, `descripcion`, `fechacreada`, `estado`, `idusuario`) VALUES
+	(1, 'Analista de créditos', 'asesor de ventas', '2020-01-18 00:00:00', 1, '1'),
+	(2, 'Promotor de ahorro y crédito', 'trabajo de promoción', '2020-01-19 00:15:24', 1, '1'),
+	(3, 'Gerencia', 'representante legal', '2020-01-28 21:24:52', 1, '1'),
+	(4, 'Administración', 'encargado de agencia', '2020-01-28 21:25:08', 1, '1'),
+	(5, 'Recibidor(a)/Pagador(a)', 'encargado de los movimientos de caja', '2020-01-28 21:25:45', 1, '1'),
+	(6, 'Vigilancia', 'vigilante diurnoa', '2020-01-28 21:26:14', 1, '1'),
+	(7, 'Limpieza', 'encargado de la limpieza de oficinas', '2020-01-28 21:26:50', 1, '1'),
+	(8, 'Nuevo Dptomm', 'Nuevo dpto', '2020-07-29 10:03:51', 1, '1');
+/*!40000 ALTER TABLE `departamento` ENABLE KEYS */;
 
-INSERT INTO `departamento` (`iddepartamento`, `nombre`, `descripcion`, `fechacreada`, `idusuario`) VALUES
-(1, 'Analista de créditos', 'asesor de ventas', '2020-01-18 00:00:00', '1'),
-(2, 'Promotor de ahorro y crédito', 'trabajo de promoción', '2020-01-19 00:15:24', '1'),
-(3, 'Gerencia', 'representante legal', '2020-01-28 21:24:52', '1'),
-(4, 'Administración', 'encargado de agencia', '2020-01-28 21:25:08', '1'),
-(5, 'Recibidor(a)/Pagador(a)', 'encargado de los movimientos de caja', '2020-01-28 21:25:45', '1'),
-(6, 'Vigilancia', 'vigilante diurno', '2020-01-28 21:26:14', '1'),
-(7, 'Limpieza', 'encargado de la limpieza de oficinas', '2020-01-28 21:26:50', '1');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `mensajes`
---
-
-CREATE TABLE `mensajes` (
-  `idmensaje` int(11) NOT NULL,
-  `idusuariomensaje` int(11) NOT NULL,
-  `textomensaje` text COLLATE utf8_bin NOT NULL,
-  `estado` tinyint(4) NOT NULL DEFAULT 1,
-  `fechamensaje` datetime NOT NULL,
+-- Volcando estructura para tabla control_asistencia.tipousuario
+CREATE TABLE IF NOT EXISTS `tipousuario` (
+  `idtipousuario` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) COLLATE utf8_bin NOT NULL,
+  `descripcion` varchar(100) COLLATE utf8_bin NOT NULL,
   `fechacreada` datetime NOT NULL,
-  `idusuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `idusuario` varchar(45) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`idtipousuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
---
--- Volcado de datos para la tabla `mensajes`
---
-
-INSERT INTO `mensajes` (`idmensaje`, `idusuariomensaje`, `textomensaje`, `estado`, `fechamensaje`, `fechacreada`, `idusuario`) VALUES
-(2, 1, 'hola, esto es un mensaje de prueba del sistema de usuarios', 1, '2020-01-18 00:00:00', '2020-01-18 00:00:00', 1);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tipousuario`
---
-
-CREATE TABLE `tipousuario` (
-  `idtipousuario` int(11) NOT NULL,
-  `nombre` varchar(45) COLLATE utf8_bin NOT NULL,
-  `descripcion` varchar(45) COLLATE utf8_bin NOT NULL,
-  `fechacreada` datetime NOT NULL,
-  `idusuario` varchar(45) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Volcado de datos para la tabla `tipousuario`
---
-
+-- Volcando datos para la tabla control_asistencia.tipousuario: ~3 rows (aproximadamente)
+DELETE FROM `tipousuario`;
+/*!40000 ALTER TABLE `tipousuario` DISABLE KEYS */;
 INSERT INTO `tipousuario` (`idtipousuario`, `nombre`, `descripcion`, `fechacreada`, `idusuario`) VALUES
-(1, 'Administrador', 'Con priviliegios de gestionar todo el sistema', '2020-01-18 00:00:00', '1'),
-(2, 'Vendedor', 'vende y promueve los productos', '2020-01-19 00:30:13', 'admin');
+	(1, 'Administrador', 'Con priviliegios de gestionar todo el sistemaaa', '2020-01-18 00:00:00', '1'),
+	(2, 'Vendedor', 'vende y promueve los productos', '2020-01-19 00:30:13', 'admin'),
+	(3, 'Secretario/a', 'Realiza todas las tareas adm. del dpto.', '2020-07-29 08:57:08', '1');
+/*!40000 ALTER TABLE `tipousuario` ENABLE KEYS */;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuarios`
---
-
-CREATE TABLE `usuarios` (
-  `idusuario` int(11) NOT NULL,
+-- Volcando estructura para tabla control_asistencia.usuarios
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `idusuario` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) COLLATE utf8_bin NOT NULL,
   `apellidos` varchar(45) COLLATE utf8_bin NOT NULL,
   `login` varchar(45) COLLATE utf8_bin NOT NULL,
@@ -157,110 +113,23 @@ CREATE TABLE `usuarios` (
   `fechacreado` datetime NOT NULL,
   `usuariocreado` varchar(45) COLLATE utf8_bin NOT NULL,
   `codigo_persona` varchar(20) COLLATE utf8_bin DEFAULT NULL,
-  `idmensaje` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  PRIMARY KEY (`idusuario`),
+  UNIQUE KEY `login` (`login`),
+  UNIQUE KEY `codigo_persona` (`codigo_persona`),
+  KEY `fk_departamento` (`iddepartamento`),
+  KEY `fk_tiposusario` (`idtipousuario`),
+  CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`iddepartamento`) REFERENCES `departamento` (`iddepartamento`),
+  CONSTRAINT `usuarios_ibfk_2` FOREIGN KEY (`idtipousuario`) REFERENCES `tipousuario` (`idtipousuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
---
--- Volcado de datos para la tabla `usuarios`
---
+-- Volcando datos para la tabla control_asistencia.usuarios: ~2 rows (aproximadamente)
+DELETE FROM `usuarios`;
+/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` (`idusuario`, `nombre`, `apellidos`, `login`, `iddepartamento`, `idtipousuario`, `email`, `password`, `imagen`, `estado`, `fechacreado`, `usuariocreado`, `codigo_persona`) VALUES
+	(15, 'Justo Ramon', 'Gonzalez', 'justo', 2, 1, 'justo@gmail.com', '6cf713e83ca48f8a190b07af39303ea10884872d491f8d0c2056907fc2a26bad', '1596031232.jpg', 1, '2020-07-29 10:00:31', 'Justo Ramon', '2101'),
+	(22, 'Alma Maria', 'Meza Dure', 'alma', 1, 1, 'alma@gmail.com', '7054d0451000f27e0673c136e684b10beee8f4d6d9d04f964a92345a92cb17ef', '', 1, '2020-08-29 21:03:34', 'Alma Maria', '1509');
+/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 
-INSERT INTO `usuarios` (`idusuario`, `nombre`, `apellidos`, `login`, `iddepartamento`, `idtipousuario`, `email`, `password`, `imagen`, `estado`, `fechacreado`, `usuariocreado`, `codigo_persona`, `idmensaje`) VALUES
-(1, 'admin', 'compartiendocodigos', 'admin', 1, 1, 'info@compartiendocodigos.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'default.jpg', 1, '2020-01-18 00:00:00', 'admin', '444', 1),
-(2, 'JUAN', 'Lopez Torres', 'juan', 1, 2, 'juan@gmail.com', 'ed08c290d7e22f7bb324b15cbadce35b0b348564fd2d5f95752388d86d71bcca', '1579406789.jpg', 1, '2020-01-18 22:06:29', '0', '789', 0),
-(11, 'Angel', 'totocayo', 'pepe', 1, 2, 'angelinos257@gmail.com', '7c9e7c1494b2684ab7c19d6aff737e460fa9e98d5a234da1310c97ddf5691834', '1579408503.jpg', 1, '2020-01-18 22:35:03', 'Angel', '8VwqyL', 0),
-(14, 'Pedro', 'totocayo', 'coco', 2, 2, 'angelinos257@gmail.com', '4f682b71153ffa91e608445d7ea1257e2076d0d95eab6336cd1aa94b49680f11', '1579415808.jpg', 1, '2020-01-19 00:36:47', 'admin', NULL, 0);
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `asistencia`
---
-ALTER TABLE `asistencia`
-  ADD PRIMARY KEY (`idasistencia`);
-
---
--- Indices de la tabla `departamento`
---
-ALTER TABLE `departamento`
-  ADD PRIMARY KEY (`iddepartamento`);
-
---
--- Indices de la tabla `mensajes`
---
-ALTER TABLE `mensajes`
-  ADD PRIMARY KEY (`idmensaje`),
-  ADD KEY `idusuario` (`idusuario`);
-
---
--- Indices de la tabla `tipousuario`
---
-ALTER TABLE `tipousuario`
-  ADD PRIMARY KEY (`idtipousuario`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`idusuario`),
-  ADD UNIQUE KEY `login` (`login`),
-  ADD UNIQUE KEY `codigo_persona` (`codigo_persona`),
-  ADD KEY `fk_departamento` (`iddepartamento`),
-  ADD KEY `fk_tiposusario` (`idtipousuario`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `asistencia`
---
-ALTER TABLE `asistencia`
-  MODIFY `idasistencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
-
---
--- AUTO_INCREMENT de la tabla `departamento`
---
-ALTER TABLE `departamento`
-  MODIFY `iddepartamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT de la tabla `mensajes`
---
-ALTER TABLE `mensajes`
-  MODIFY `idmensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `tipousuario`
---
-ALTER TABLE `tipousuario`
-  MODIFY `idtipousuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `mensajes`
---
-ALTER TABLE `mensajes`
-  ADD CONSTRAINT `mensajes_ibfk_1` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`idusuario`);
-
---
--- Filtros para la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`iddepartamento`) REFERENCES `departamento` (`iddepartamento`),
-  ADD CONSTRAINT `usuarios_ibfk_2` FOREIGN KEY (`idtipousuario`) REFERENCES `tipousuario` (`idtipousuario`);
-COMMIT;
-
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
