@@ -56,22 +56,28 @@ switch ($_GET["op"]) {
 	case 'listar':
 		$rspta=$asistencia->listar();
 		//declaramos un array
-		$data=Array();
+			$data=Array();
 
 
 		while ($reg=$rspta->fetch_object()) {
+	
+$fechamodentrada = date("d-m-Y H:m", strtotime($reg->entrada));
+$fechamodiniciob = date("d-m-Y H:m", strtotime($reg->iniciob));
+$fechamodfinalb = date("d-m-Y H:m", strtotime($reg->finalb));
+$fechamodsalida = date("d-m-Y H:m", strtotime($reg->salida));
+
+//$fechamodentrada= $reg->entrada;
+
 			$data[]=array(
-				
+
 				"0"=>$reg->nombre,
-				"1"=>$reg->apellidos,
-				"2"=>$reg->fecha,
-				"3"=>$reg->entrada,
-				"4"=>$reg->iniciob,
-				"5"=>$reg->finalb,
-				"6"=>$reg->salida
+				"1"=>$reg->apellidos,		
+				"2"=>$fechamodentrada,
+				"3"=>$fechamodiniciob,
+				"4"=>$fechamodfinalb,
+				"5"=>$fechamodsalida
 				);
 		}
-		
 
 		$results=array(
              "sEcho"=>1,//info para datatables
